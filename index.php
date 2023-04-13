@@ -1,84 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8" />
-	<title>Labb 1</title>
-	<link href="wp-content/themes/lab1-emiliatema/assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
-	<link href="wp-content/themes/lab1-emiliatema/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-	<link href="wp-content/themes/lab1-emiliatema/assets/css/style.css" rel="stylesheet" type="text/css" />
-	<script src="wp-content/themes/lab1-emiliatema/assets/js/jquery.js"></script>
-</head>
-<body>
+<!-- Ska vi lägga in Get header som i föreläsningen och sen ta bort doctype osv?
 
-	<div id="wrap">
+Om ja, så ska följande kod finnas:
+Enligt föreläsning 2, skapa eget tema, runt 20 min in, så ska det bara vara att skriva in
+get_header.
+< ?php get_header(); ?>
+<section>
+    < ?php if (have_posts() ) : ?>
+	
+	Mallhierarkin måste man ha koll på. 
+single.php - för enskilda inlägg. 
+ index.php ska visa standardmallad sida. 
+front-page.php - för startsidan. 
+home.php samlingssida för alla bloginlägg
+page.php för sidor, samt för hur man kan malla en specifik sida via slug eller id.
+Kan du bestämma själv.
+custom.php - kan välja själv från adminpanelen, kan välja vilken mall sidan ska ha.
+custom.php behöver man nog inte ha i inlämningsuppgiften.
+page-slug.php används också för att eg sidan innehåll. Kan användas
+till sidoinnehåll. 
 
-		<header id="header">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-8 col-sm-6">
-						<a class="logo" href="index.html">Labb 1</a>
-					</div>
-					<div class="col-sm-6 hidden-xs">
-						<form id="searchform" class="searchform">
-							<div>
-								<label class="screen-reader-text">Sök efter:</label>
-								<input type="text" />
-								<input type="submit" value="Sök" />
-							</div>
-						</form>
-					</div>
-					<div class="col-xs-4 text-right visible-xs">
-						<div class="mobile-menu-wrap">
-							<i class="fa fa-search"></i>
-							<i class="fa fa-bars menu-icon"></i>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+page-slug.php eller id, för att kunna visa innehåll för en enskild sida
+så man gör en enskild för varje sida. 
 
-		<div class="mobile-search">
-			<form id="searchform" class="searchform">
-				<div>
-					<label class="screen-reader-text">Sök efter:</label>
-					<input type="text" />
-					<input type="submit" value="Sök" />
-				</div>
-			</form>
-		</div>
+slug - kan likna vid länk, namn på en sida. 
+istället för att länka med adress, så har man ett namn. 
+man sätter ett namn på en sida. Så skriver man namnet så vet man
+att det är den sidan som ska visas. Bakom domännamnet, sista delen av url-länken.
 
-		<nav id="nav">
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-12">
-						<ul class="menu">
-							<li class="current-menu-item">
-								<a href="index.html">Hem</a>
-							</li>
-							<li>
-								<a href="blogg.html">Blogg</a>
-							</li>
-							<li>
-								<a href="undersida.html">Undersida</a>
-							</li>
-							<li>
-								<a href="undersida2.html">Undersida 2</a>
-							</li>
-							<li>
-								<a href="undersida3.html">Undersida 3</a>
-							</li>
-							<li>
-								<a href="undersida4.html">Undersida 4</a>
-							</li>
-							<li>
-								<a href="kontakt.html">Kontakt</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</nav>
+Vill man bara visa en del av innehållet så är det
+the_excerpt som gäller.
 
+
+get_sidbar.
+-->
+
+	<?php get_header(); ?>
 		<main>
 			<section>
 				<div class="container">
@@ -96,56 +52,4 @@
 				</div>
 			</section>
 		</main>
-
-		<footer id="footer">
-			<div class="container">
-				<div class="row top">
-					<div class="col-xs-12 col-sm-6 col-md-4">
-						<h4>Kort om oss</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales mauris. Aliquam felis est, efficitur vel fringilla quis, vehicula quis ex.</p>
-						<p>Phasellus tristique nunc in leo faucibus, a consequat nulla sagittis.</p>
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
-						<h4>Kontaktuppgifter</h4>
-						<p>
-							The Company<br />
-							Gatgatan 1<br />
-							123 45 Någonstans
-						</p>
-						<p>
-							Tel: 0123456789<br />
-							E-post: <a href="">info@thecompany.com</a>
-						</p>
-					</div>
-					<div class="col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
-						<h4>Social media</h4>
-						<ul class="social">
-							<li>
-								<i class="fa fa-facebook"></i> <a href="">Facebook</a>
-							</li>
-							<li>
-								<i class="fa fa-twitter"></i> <a href="">Twitter</a>
-							</li>
-							<li>
-								<i class="fa fa-instagram"></i> <a href="">Instagram</a>
-							</li>
-							<li>
-								<i class="fa fa-linkedin"></i> <a href="">LinkedIn</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-				<div class="row bottom">
-					<div class="col-xs-12">
-						<p>Copyright &copy; Grupp X, 2016</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-	</div>
-
-	<script src="wp-content/themes/lab1-emiliatema/assets/js/script.js"></script>
-
-</body>
-</html>
+		<?php get_footer(); ?>
