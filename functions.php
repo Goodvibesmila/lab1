@@ -1,98 +1,102 @@
-<!-- används för att utöka funktionaliteten, ge tema stöd för ex menyer, sidebars
-utvalda bilder, m.m, fungerar som tillägg men är bundet till temat ist för tillgängligheten i wordpress 
+<?php
 
+function styling() {
+    wp_enqueue_style('boostrap', get_stylesheet_directory_uri() . '/assets/css/bootstrap.css');
+    wp_enqueue_style('font', get_stylesheet_directory_uri() . '/assets/css/font-awesome.css');
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/assets/css/style.css');
+} 
 
-thumbnail.
+add_action('init', 'styling');
 
-Lägger jag till add_theme_support( 'post-thumbnail' ); här för att
-Stödja att bilden på förstasidan ska synas?
+    add_theme_support( 'widgets');
 
-Lägger jag get_the_title() här också? - skriver ut/returnerar rubriken för en post
-om posten är privat eller lösenordsskyddad kommer rubriken att få orden provat resp skyddat. om man vill
-anropaen posts rubrik utanför loopen kan man använda funktionen get_the_title()
+    add_theme_support('post-thumbnails');
 
-Föreläsning 2, del två 42.33 in vanliga malltaggar. 
-postens titel, postens innehåll författare, länkar till postkategorier
-visar url till post, post publiceringstid, visar navigeringsmeny
+    function menu() {
+        $menu = array(
+            'huvudmeny' => 'header huvudmeny',
+            'sidemenu' => 'sido-meny',
+            'sidormeny' => 'sidor-meny',
+            'arkivmenu' => 'arkiv-meny',
+            'kategoriermenu' => 'kategorier-meny',
+        );
+        register_nav_menus($menu);
+    }
 
-the_content()
+    add_action('init', 'menu');
 
-template tags. finns på developer.wordpress.org teman.-->
+    function widget_areas() {
+        register_sidebar(
+            array(
+            'name' => 'Footer Area 1',
+            'id' => 'footer-1',
+            'description' => 'Footer Widget Area',
+            'before_widget' => '',
+            'after_widget'  => '',
+            )
+            );
 
+        register_sidebar(
+            array(
+            'name' => 'Footer Area 2', 
+            'id' => 'footer-2',
+            'description' => 'Footer Widget Area',
+            'before_widget' => '',
+            'after_widget'  => '',
+           
+            )
+            );
 
+        register_sidebar(
+            array(
+            'name' => 'Footer Area 3',
+            'id' => 'footer-3',
+            'description' => 'Footer Widget Area',
+            'before_widget' => '',
+            'after_widget'  => '',
+            )
+            );
 
+            register_sidebar(
+                array(
+                'name' => 'Aside Area 1',
+                'id' => 'aside-1',
+                'description' => 'Aside Widget Area',
+                'before_widget' => '',
+                'after_widget'  => '',
+                )
+                );
 
+                register_sidebar(
+                    array(
+                    'name' => 'Aside Area 2',
+                    'id' => 'aside-2',
+                    'description' => 'Aside Widget Area',
+                    'before_widget' => '',
+                    'after_widget'  => '',
+                    )
+                    );
+                
+                    register_sidebar(
+                        array(
+                        'name' => 'Aside Area 3',
+                        'id' => 'aside-3',
+                        'description' => 'Aside Widget Area',
+                        'before_widget' => '',
+                        'after_widget'  => '',
+                        )
+                        );
 
+                        register_sidebar(
+                            array(
+                            'name' => 'Aside search Area',
+                            'id' => 'search',
+                            'description' => 'Search Widget Area',
+                            'before_widget' => '',
+                            'after_widget'  => '',
+                            )
+                            );
+    }
 
-<!-- här skapar jag min loop, för att loopa ut innehåll som 
-generar output för inlägg.
-
-genom loop bearbetar wordpress varje post som ska visas, formaterar
-den enligt hur den matchar specifika kriterier i looptagg. 
-
-loop hämtar data från alla poster som matchar givna kriterier och infogar
-lämplig information.
-
-loopstruktur.
-börja loop.
-visa taggar
-avsluta loop.
-    < ?php the_thumbnail(); ?>
-< ?php wp_nav_meny(); ?>
-
-< ?php dynamic_sidebar(); ?>
-
-< ?php add_theme_support(); ?> -->
-
-<!--
-< ?php the_title(); ?>
-
-< ?php the_content(); ?>
-
-< ?php the_date(); ?>
-
-< ?php the_category(); ?>
-
-< ?php the_author(); ?>
-
-< ?php the_excerpt(); ?>
-
-< ?php have_posts(); ?>
-
-< ?php the_post(); ?>
-
-< ?php the_post_thumbnail_url(); ?>
-
-< ?php the_permalink(); ?>
-
-< ?php get_search_query(); ?>
-
-< ?php get_search_form(); ?>
-
--->
-
-
-<!-- fattar inte riktigt loop, förklara gärna igen? strax innan 
-1.35 del 2 lektion 2. Går igenom vart man skriver loop för post.
-Gå igenom igen. Men vill gärna ha hjälp.  -->
-
-<!--
-< ?php if (have_posts() ) : while ( have_posts() ) : the_post(); ?> 
-< ?php endwhile; else: ?>
-    <p>< ?php esc_html_e ( 'Tyvärr, det finns inga inlägg.' ); ?></p>
-    < ?php endif; ?>
-
-    < ?php if ( have_posts() ) : ?>
-        <div class="articles">
-        < ?php while ( have_posts() ) : the_post(); ?>
-        <article>
-            <h3>< ?php the_title(); ?></h3>
-            <h4>< ?php the_content(); ?></h4>
-        </article>
-        < ?php endwhile; ?>
-        </div>
-        < ?php else : ?>
-            <p> Tyvärr inga poster hittades. </p>
-            < ?php endif; ?>
-
-        -->
+    add_action('widgets_init', 'widget_areas');
+?>

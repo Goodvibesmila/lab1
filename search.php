@@ -1,5 +1,9 @@
+välkommen search
+
+
 <?php get_header(); ?>
 		<main>
+
 			<section>
 				<div class="container">
 					<div class="row">
@@ -14,6 +18,11 @@
 									</div>
 								</form>
 							</div>
+							
+							search
+							<?php get_template_part('/template-parts/template', 'loopsearch'); ?>
+							
+							<!--
 							<article>
 								<img src="img/washington.jpg" />
 								<h2 class="title">
@@ -32,6 +41,7 @@
 								</ul>
 								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed sodales mauris. Aliquam felis est, efficitur vel fringilla quis, vehicula quis ex. Phasellus tristique nunc in leo faucibus, a consequat nulla sagittis. In sed mi mi. Praesent condimentum sollicitudin nibh. Vivamus vulputate purus quis volutpat fringilla. Ut tortor libero, semper eget dolor vel, hendrerit tempus dui. Suspendisse dictum efficitur blandit. In porta scelerisque nulla ac placerat.</p>
 							</article>
+							
 							<article>
 								<img src="img/paris.jpg" />
 								<h2 class="title">
@@ -50,6 +60,7 @@
 								</ul>
 								<p>Integer quis eros at urna pulvinar mollis eget quis ex. Nam fringilla tellus at ligula consequat, sed sagittis ipsum ultricies. Nunc pretium bibendum enim id iaculis. Nam sed leo non sem aliquam imperdiet dictum vitae magna. Phasellus ac accumsan dolor, quis congue mauris. Maecenas vehicula, arcu sed congue euismod, mi urna rhoncus nunc, et feugiat arcu tellus vitae odio. Sed luctus vel lorem vel dictum. Suspendisse potenti. Proin vel efficitur ex. Suspendisse scelerisque rutrum mattis. In sed laoreet augue, non maximus ante. Nam a rhoncus ligula. Aliquam at aliquet lorem. Suspendisse non risus tincidunt, gravida augue non, fringilla libero.</p>
 							</article>
+							
 							<article>
 								<img src="img/london.jpg" />
 								<h2 class="title">
@@ -67,7 +78,8 @@
 									</li>
 								</ul>
 								<p>Sed pretium metus in urna vehicula imperdiet. Fusce at odio vitae felis maximus tincidunt. Nunc porttitor ex a elementum dictum. Maecenas eget arcu nulla. Cras auctor dui aliquet, condimentum orci vel, venenatis nisl. Ut semper magna urna, ac congue dui cursus vitae. Nam sed pharetra leo, vel tincidunt est. Phasellus volutpat tortor nec nulla feugiat congue. Donec quis ligula varius, euismod nisl eu, aliquet metus. Aliquam tempus iaculis odio, sed volutpat mi aliquam aliquet.</p>
-							</article>
+							</article> -->
+							
 							<nav class="navigation pagination">
 								<h2 class="screen-reader-text">Inläggsnavigering</h2>
 								<a class="prev page-numbers" href="">Föregående</a>
