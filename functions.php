@@ -8,6 +8,13 @@ function styling() {
 
 add_action('init', 'styling');
 
+function script() {
+    wp_register_script('emilia-jquery', get_template_directory_uri() . '/assets/js/jquery.js', array(), true);
+    wp_register_script('emilia-scriptjs', get_template_directory_uri() . '/assets/js/script.js', '', false, true);
+}
+
+add_action('wp_enqueue_scripts', 'script');
+
     add_theme_support( 'widgets');
 
     add_theme_support('post-thumbnails');
@@ -59,7 +66,7 @@ add_action('init', 'styling');
 
             register_sidebar(
                 array(
-                'name' => 'Aside Area 1',
+                'name' => 'Aside meny',
                 'id' => 'aside-1',
                 'description' => 'Aside Widget Area',
                 'before_widget' => '',
@@ -69,18 +76,28 @@ add_action('init', 'styling');
 
                 register_sidebar(
                     array(
-                    'name' => 'Aside Area 2',
-                    'id' => 'aside-2',
-                    'description' => 'Aside Widget Area',
+                    'name' => 'Searchtitle',
+                    'id' => 'search-1',
+                    'description' => 'Search Widget Area',
                     'before_widget' => '',
                     'after_widget'  => '',
                     )
                     );
+
+                    register_sidebar(
+                        array(
+                        'name' => 'Searchtitlesearchside',
+                        'id' => 'search-2',
+                        'description' => 'Search Widget Area',
+                        'before_widget' => '',
+                        'after_widget'  => '',
+                        )
+                        );
                 
                     register_sidebar(
                         array(
-                        'name' => 'Aside Area 3',
-                        'id' => 'aside-3',
+                        'name' => 'searchside',
+                        'id' => 'searchside-1',
                         'description' => 'Aside Widget Area',
                         'before_widget' => '',
                         'after_widget'  => '',

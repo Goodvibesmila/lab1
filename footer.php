@@ -20,6 +20,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="wp-content/themes/lab1-emiliatema/assets/js/script.js"></script>
+
+<?php wp_footer(); ?>
+
 </body>
 </html>

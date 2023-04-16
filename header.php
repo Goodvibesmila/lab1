@@ -8,7 +8,7 @@
 	<link href="wp-content/themes/lab1-emiliatema/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 	<link href="wp-content/themes/lab1-emiliatema/assets/css/style.css" rel="stylesheet" type="text/css" />
 	<script src="wp-content/themes/lab1-emiliatema/assets/js/jquery.js"></script>
-    <link href="<?php echo get_stylesheet_uri(); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo get_stylesheet_uri(); ?>
 -->
 	<?php wp_head(); ?>
 </head>
@@ -19,7 +19,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-8 col-sm-6">
-						<a class="logo" href="index.html">Labb 1</a>
+					<a class="logo" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
 					</div>
 					<div class="col-sm-6 hidden-xs">
 						<form id="searchform" class="searchform">
@@ -41,9 +41,7 @@
 		<div class="mobile-search">
 			<form id="searchform" class="searchform">
 				<div>
-					<label class="screen-reader-text">Sök efter:</label>
-					<input type="text" />
-					<input type="submit" value="Sök" />
+				<?php get_search_form() ;?>
 				</div>
 			</form>
 		</div>
