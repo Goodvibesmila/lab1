@@ -1,4 +1,3 @@
-
 <!-- Hämtar allt innehåll i header.php -->
 <?php get_header(); ?>
 
@@ -39,8 +38,8 @@
 										</form>
 
 
-										<ul role="navigation">
-										<li class="pagenav">
+								<ul role="navigation">
+									<li class="pagenav">
 
 										<!-- En wordpressfunktion som Hämtar/visar dynamiskt sidbarinnehåll. Aside-1 är Id för
 											 den funktionen som skapar en widget som innehåller navigeringslänkar. -->

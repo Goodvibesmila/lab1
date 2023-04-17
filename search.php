@@ -12,7 +12,7 @@
 							<h1><?php wp_title(''); ?></h1>
 
 							<div class="searchform-wrap">
-								<form id="searchform" class="searchform">
+							<form method="get" id="searchform" class="searchform" action="<?php echo esc_url(home_url('/'));?>">
 									<div>
 									<label ><?php dynamic_sidebar('search-2') ?></label>
 

@@ -1,23 +1,33 @@
+
+<!-- Hämtar allt innehåll i header.php -->
 <?php get_header(); ?>
-		<main>
-			<section>
+	<main>
+		<section>
 				<div class="container">
 					<div class="row">
 						<div id="primary" class="col-xs-12 col-md-9">
+							<!-- En loop, som loopar ut innehåll dynamiskt.
+								 Titeln för inlägget. 
+								 En funktion för innehållet på sidan.
+								 Slutfunktion för loopen. -->
 							<?php if( have_posts() ): while( have_posts() ): the_post();?>
                                 <h1><?php the_title(); ?></h1>
                                 <p><?php the_content(); ?></p>
 							<?php endwhile; else: endif;?>
 						</div>
 						<aside id="secondary" class="col-xs-12 col-md-3">
-							<?php 
+							
+						<!-- Funktion för en sid-menyn -->
+								<?php 
 								wp_nav_menu(
-								array('menu' => 'sidemenu', 'theme_location' => 'sidemenu', 'items_wrap' => '<ul class="menu">%3$s</ul>')
+								array('menu' => 'sidemenu', 'menu_class' => 'side-menu', 'theme_location' => 'sidemenu')
 								);
 								?>
-								</aside>
+							
+						</aside>
 					</div>
 				</div>
-			</section>
-		</main>
-		<?php get_footer(); ?>
+		</section>
+	</main>
+<!-- Hämtar allt innehåll i footer.php -->		
+<?php get_footer(); ?>
